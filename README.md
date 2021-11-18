@@ -40,7 +40,7 @@ The client class mainly provides methods for building forms, accepting input, an
 Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.  Examples are found commented at the top of each utility.
 
 #### hal
-A popup message
+A popup / system message (taken from 2001 Space Odyssey HAL)
 #### spinner
 A waiting spinner, easily targeted to elements or the whole page
 #### fetch_wrap
