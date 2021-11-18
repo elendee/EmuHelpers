@@ -1,6 +1,8 @@
 # Emu App
 Emu is a collection of patterns and utitlities that I have settled on in all the node based web apps I've built.
+
 It uses raw EC6 modules on the frontend with no Typescript or bundling.
+
 The main reason for building it was the clientside Model class, which allows for generating 'create' and 'edit' forms automatically from whatever your Model is.
 
 
