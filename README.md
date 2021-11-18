@@ -15,7 +15,7 @@ The particular focus is on creating generic, unstyled clientside forms - CSS and
 The client class mainly provides methods for building forms, accepting input, and posting to server.
 
 #### `Model.build_form()`
-- The generated form `preventDefault` standard submit, and will fire the Model's `onsubmit` method before firing it's own `submit`.
+- The generated form will `preventDefault` standard submit, and will fire the Model's `onsubmit` method (intended for user middleware) before firing it's own `submit`.
 
 #### `Model.hydrate( type, source, overwrite )`
 - enum `type` - 'data' or 'form'
