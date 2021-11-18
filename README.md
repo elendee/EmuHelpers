@@ -1,13 +1,7 @@
 # Emu App
 Emu is a collection of patterns and utitlities that I have settled on in all the node based web apps I've built.
 It uses raw EC6 modules on the frontend with no Typescript or bundling.
-Most of these can be found in some form in:
-```
-https://eccentricity.online
-https://game-scry.online
-https://coilconnect.org
-https://emu.oko.nyc
-``` 
+
 
 ## Utilities
 Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.
@@ -52,3 +46,12 @@ The client class mainly provides methods for building forms, accepting input, an
 - return all fields marked as public info
 - optionally return more private fields where server logic determines it's appropriate
 
+
+## Apps using Emu tools / patterns:
+These are apps I've built using the tools in Emu:
+```
+https://eccentricity.online
+https://game-scry.online
+https://coilconnect.org
+https://emu.oko.nyc
+``` 
