@@ -1,19 +1,7 @@
 # Emu App
 Emu is a collection of patterns and utitlities that I have settled on in all the node based web apps I've built.
 It uses raw EC6 modules on the frontend with no Typescript or bundling.
-
-
-## Utilities
-Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.  Examples are found commented at the top of each utility.
-
-#### hal
-A popup message
-#### spinner
-A waiting spinner, easily targeted to elements or the whole page
-#### fetch_wrap
-A small wrapper around js `fetch` that assumes you are either GETting a route of POSTing JSON
-#### charts
-SVG pie charts that animate when scrolled to.  
+The main reason for building it was the clientside Model class, which allows for generating 'create' and 'edit' forms automatically from whatever your Model is.
 
 
 ## Models - Client and Server:
@@ -44,6 +32,21 @@ The client class mainly provides methods for building forms, accepting input, an
 #### `Model.publish( private_fields )`
 - return all fields marked as public info
 - optionally return more private fields where server logic determines it's appropriate
+
+
+
+## Utilities
+Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.  Examples are found commented at the top of each utility.
+
+#### hal
+A popup message
+#### spinner
+A waiting spinner, easily targeted to elements or the whole page
+#### fetch_wrap
+A small wrapper around js `fetch` that assumes you are either GETting a route of POSTing JSON
+#### charts
+SVG pie charts that animate when scrolled to.  
+
 
 
 ## Apps using Emu tools / patterns:
