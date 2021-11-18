@@ -20,7 +20,7 @@ The client class mainly provides methods for building forms, accepting input, an
 #### `Model.hydrate( type, source, overwrite )`
 - enum `type` - 'data' or 'form'
 - - data: hydrate from other objects or Models as `source`s
-- - form: attempt to hydrate a Model from a given DOM form as `source`, or it's internal form if none is provided.  The form should in turn be created by the Model's `build_form` method to ensure the inputs align with the Model.
+- - form: attempt to hydrate a Model from a given DOM form as `source`, or it's internal form if none is provided.
 
 #### `Model.submit( endpoint, options )`
 - post data directly from the model as opposed to from a form element
