@@ -44,7 +44,7 @@ A popup / system message (taken from 2001 Space Odyssey HAL)
 #### spinner
 A waiting spinner, easily targeted to individual elements or the whole page
 #### fetch_wrap
-A small wrapper around js `fetch`, returning a Promise that assumes you are either GET'ting a route of POST'ing JSON
+A small wrapper around js `fetch` that assumes you are either GET'ting a route of POST'ing JSON.  Returns a Promise
 #### charts
 SVG pie charts that animate when scrolled to.  
 
