@@ -15,14 +15,35 @@ class Model {
 			overwrite,
 		} = options
 
+		const model = this
+
 		switch( type ){
 			case 'form':
 				if( !source.classList.contains('emu-form') ){
 					console.log('invalid form given to Model hydrate', )
 				}
-				if( overwrite ){
-					for( const key in source.querySelector )
+				for( const element in source.querySelectorAll('input') ){
+					for( const key in model.data ){
+						if( key === element.name ){
+							model.fill_input_value( overwrite, element )
+						}
+					}
 				}
+				for( const element in source.querySelectorAll('textarea') ){
+					for( const key in model.data ){
+						if( key === element.name ){
+							model.fill_input_value( overwrite, element )
+						}
+					}
+				}
+				for( const element in source.querySelectorAll('select') ){
+					for( const key in model.data ){
+						if( key === element.name ){
+							model.fill_input_value( overwrite, element )
+						}
+					}	
+				}
+
 				break;
 
 			case 'data':
@@ -32,6 +53,16 @@ class Model {
 				console.log('unrecognized Model hydrate: ', type )
 				break;
 
+		}
+	}
+
+	fill_input_value( overwrite, element ){
+		if( overwrite ){
+			model.data[ key ] = element.value
+		}else{
+			if( !model.data[ key ] && model.data[ key ] !== 0 ){
+				model.data[ key ] = element.value
+			}
 		}
 	}
 
