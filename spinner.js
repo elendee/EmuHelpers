@@ -6,13 +6,17 @@ spinner is typically a gif used to block user input during an async fetch, wait,
 if called with a particular target element, it will appear inside it 
 ( assuming it has a 'position' css declared )
 otherwise it will fill the screen
-you must call "new Spinner()" to build it - provide a gif src for it.
+you must call "new Spinner()" to build it - provide an img or a gif src for it.
 
 example:
 
-spinner.show( document.querySelector('#submit-form') )
+const mySpinner = new Spinner({
+	src: './path/to/my/spinner-image.gif',
+})
+
+mySpinner.show( document.querySelector('#submit-form') )
 // ....
-spinner.hide()
+mySpinner.hide()
 
 */
 
