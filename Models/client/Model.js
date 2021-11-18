@@ -46,7 +46,7 @@ class Model {
 		}
 		form.addEventListener('submit', e => {
 			e.preventDefault()
-			mode.onsubmit()
+			model.onsubmit()
 			.then( res => {
 				model.submit()
 			})
@@ -88,7 +88,7 @@ class Model {
 		if( this.validate() ) return true
 
 		throw new Error('failed to validate')
-	
+
 	}
 
 

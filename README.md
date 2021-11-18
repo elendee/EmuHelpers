@@ -9,14 +9,13 @@ The main reason for building it was the clientside Model class, which allows for
 ## Models - Client and Server:
 Two javascript classes for passing objects easily through many forms on both client and server.
 Use these two abstract classes for the basic needs of handling large amounts of user input very quickly.
-The particular focus is on creating generic, unstyled clientside forms.
+The particular focus is on creating generic, unstyled clientside forms - CSS and extra bindings are up to you.
 
 ### Client Model
 The client class mainly provides methods for building forms, accepting input, and posting to server.
 
-#### `Model.build_form( callback )`
-- optional `callback` middleware fired on form submission.
-- *The generated form will block the default DOM form submit behavior and fire the Model's `sumbit()` method instead.*
+#### `Model.build_form()`
+- The generated form `preventDefault` standard submit, and will fire the Model's `onsubmit` method before firing it's own `submit`.
 
 #### `Model.hydrate( type, source, overwrite )`
 - enum `type` - 'data' or 'form'
