@@ -1,4 +1,13 @@
 # Emu App
+Emu is a collection of patterns and utitlities that I have settled on in all the node based web apps I've built.
+It uses raw EC6 modules on the frontend with no Typescript or bundling.
+Most of these can be found in some form in:
+```
+https://eccentricity.online
+https://game-scry.online
+https://coilconnect.org
+https://emu.oko.nyc
+``` 
 
 ## Utilities
 Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.
@@ -11,7 +20,7 @@ A waiting spinner, easily targeted to elements or the whole page
 A small wrapper around js `fetch` that assumes you are either GETting a route of POSTing JSON
 #### charts
 SVG pie charts that animate when scrolled to.  Include the module and it will target any:
-`<div class='pie' data-percent'x'></div>`
+`<div class='pie' data-percent'25'></div>`
 
 
 ## Models - Client and Server:
