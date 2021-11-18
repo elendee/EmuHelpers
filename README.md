@@ -4,7 +4,7 @@ It uses raw EC6 modules on the frontend with no Typescript or bundling.
 
 
 ## Utilities
-Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.
+Utilities are standalone modules with their css bundled directly into them so they are one-line includes in any module based app.  Examples are found commented at the top of each utility.
 
 #### hal
 A popup message
@@ -13,8 +13,7 @@ A waiting spinner, easily targeted to elements or the whole page
 #### fetch_wrap
 A small wrapper around js `fetch` that assumes you are either GETting a route of POSTing JSON
 #### charts
-SVG pie charts that animate when scrolled to.  Include the module and it will target any:
-`<div class='pie' data-percent'25'></div>`
+SVG pie charts that animate when scrolled to.  
 
 
 ## Models - Client and Server:
