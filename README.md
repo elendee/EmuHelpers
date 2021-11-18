@@ -7,8 +7,8 @@ The main reason for building it was the clientside Model class, which allows for
 
 
 ## Models - Client and Server:
-2 javascript classes for passing objects easily through many forms on both client and server.
-Use these 2 abstract classes for the basic needs of handling large amounts of user input very quickly.
+Two javascript classes for passing objects easily through many forms on both client and server.
+Use these two abstract classes for the basic needs of handling large amounts of user input very quickly.
 The particular focus is on creating generic, unstyled clientside forms.
 
 ### Client Model
