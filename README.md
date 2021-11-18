@@ -42,9 +42,9 @@ Utilities are standalone modules with their css bundled directly into them so th
 #### hal
 A popup / system message (taken from 2001 Space Odyssey HAL)
 #### spinner
-A waiting spinner, easily targeted to elements or the whole page
+A waiting spinner, easily targeted to individual elements or the whole page
 #### fetch_wrap
-A small wrapper around js `fetch` that assumes you are either GETting a route of POSTing JSON
+A small wrapper around js `fetch`, returning a Promise that assumes you are either GET'ting a route of POST'ing JSON
 #### charts
 SVG pie charts that animate when scrolled to.  
 
