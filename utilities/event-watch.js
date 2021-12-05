@@ -165,16 +165,17 @@ const event_watch = packet => {
 
 	touch_event( packet )
 
-	if( logging_events[ packet.type ] ){
-		if( event_nodes[ packet.type ].hal ){ // ( can be 0 / off )
-			const duration = event_nodes[ packet.type ].get_duration()
-			if( duration ){
-				hal('packet', '<pre>' + JSON.stringify( packet, false, 2 ) + '</pre>', duration )
-			}
+	if( !logging_events[ packet.type ] ) return 
+
+	// hal
+	if( event_nodes[ packet.type ].hal ){ // ( can be 0 / off )
+		const duration = event_nodes[ packet.type ].get_duration()
+		if( duration ){
+			hal('packet', '<pre>' + JSON.stringify( packet, false, 2 ) + '</pre>', duration )
 		}
-		// console
-		if( event_nodes[ packet.type ].console ) console.log( packet )
 	}
+	// console
+	if( event_nodes[ packet.type ].console ) console.log( packet )
 
 }
 
