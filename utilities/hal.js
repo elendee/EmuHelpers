@@ -92,6 +92,10 @@ const style = `
 `
 
 
+const alert_contain = document.createElement('div')
+alert_contain.id = 'alert-contain'
+document.body.appendChild( alert_contain )
+
 const ele = document.createElement('style')
 ele.innerHTML = style
 document.head.appendChild( ele )
