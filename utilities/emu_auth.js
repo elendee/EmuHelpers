@@ -30,6 +30,7 @@ if( !window.EMU_AUTH  ){
 			/*
 				run this one time and it will be saved in localStorage
 				set() is all you need after this
+				this allows different labels such as "user" / "email" / "handle" etc - whatever the app uses
 			*/
 
 			EMU_AUTH._CONFIG.id_string = id_string
