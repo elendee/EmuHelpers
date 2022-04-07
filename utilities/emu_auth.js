@@ -1,6 +1,6 @@
 /*
 	fill a localStorage object for easy authentication
-	it's up to the app to make use of the localStorage object
+	it's up to the app to read the localStorage object and make use of it
 	object will be of format:
 	localStorage[ 'string' ] {
 		[ type ]: {
@@ -90,7 +90,7 @@ if( !window.EMU_AUTH  ){
 
 			try{
 				const local_auth = JSON.parse( localStorage.getItem( EMU_AUTH._CONFIG.id_string ) ) || {}
-				local_auth[ label ] = local_auth[ label ] || {}
+				local_auth[ label ] = EMU_AUTH._CREDS[ label ] = local_auth[ label ] || {}
 				const user_field = EMU_AUTH._CONFIG.user_field
 				const pw_field = EMU_AUTH._CONFIG.pw_field
 				user = user || local_auth[ label ][ user_field ]
