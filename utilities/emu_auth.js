@@ -37,6 +37,9 @@ if( !window.EMU_AUTH  ){
 			EMU_AUTH._CONFIG.user_field = user_field
 			EMU_AUTH._CONFIG.pw_field = pw_field
 
+			EMU_AUTH._CREDS = EMU_AUTH._CREDS || {}
+			EMU_AUTH._CONFIG = EMU_AUTH._CONFIG || {}
+
 			EMU_AUTH._save()
 
 		},
@@ -89,6 +92,7 @@ if( !window.EMU_AUTH  ){
 			}
 
 			try{
+
 				const local_auth = JSON.parse( localStorage.getItem( EMU_AUTH._CONFIG.id_string ) ) || {}
 				local_auth[ label ] = EMU_AUTH._CREDS[ label ] = local_auth[ label ] || {}
 				const user_field = EMU_AUTH._CONFIG.user_field
