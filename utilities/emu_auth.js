@@ -79,6 +79,7 @@ if( !window.EMU_AUTH  ){
 			/*
 				the basic function for adding new creds
 				saves to localStorage[ _CONFIG.id_string ] ( NOT )
+				set user and pass to falseys to delete user type entirely
 			*/
 
 			if( !label ){
@@ -93,16 +94,22 @@ if( !window.EMU_AUTH  ){
 
 			try{
 
-				const local_auth = JSON.parse( localStorage.getItem( EMU_AUTH._CONFIG.id_string ) ) || {}
-				local_auth[ label ] = EMU_AUTH._CREDS[ label ] = local_auth[ label ] || {}
-				const user_field = EMU_AUTH._CONFIG.user_field
-				const pw_field = EMU_AUTH._CONFIG.pw_field
-				user = user || local_auth[ label ][ user_field ]
-				pw = pw || local_auth[ label ][ pw_field ]
-				local_auth[ label ][ user_field ] = EMU_AUTH._CREDS[ label ][ user_field ] =  user
-				local_auth[ label ][ pw_field ] = EMU_AUTH._CREDS[ label ][ pw_field ] = pw
+				// const local_auth 
+				EMU_AUTH._CREDS = JSON.parse( localStorage.getItem( EMU_AUTH._CONFIG.id_string ) ) || {}
 
-				localStorage.setItem( EMU_AUTH._CONFIG.id_string, JSON.stringify( local_auth ))
+				if( !user && !pw ){ // deleting a user
+					delete EMU_AUTH._CREDS[ label ]
+				}else{ // editing a user
+					EMU_AUTH._CREDS[ label ] = EMU_AUTH._CREDS[ label ] || {}
+					const user_field = EMU_AUTH._CONFIG.user_field
+					const pw_field = EMU_AUTH._CONFIG.pw_field
+					user = user || EMU_AUTH[ label ][ user_field ]
+					pw = pw || EMU_AUTH[ label ][ pw_field ]
+					EMU_AUTH._CREDS[ label ][ user_field ] =  user
+					EMU_AUTH._CREDS[ label ][ pw_field ] = pw
+				}
+
+				localStorage.setItem( EMU_AUTH._CONFIG.id_string, JSON.stringify( EMU_AUTH._CREDS ))
 
 			}catch( err ){
 				console.log( err )
