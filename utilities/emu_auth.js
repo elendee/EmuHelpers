@@ -33,24 +33,22 @@ if( !window.EMU_AUTH  ){
 				this allows different labels such as "user" / "email" / "handle" etc - whatever the app uses
 			*/
 
+			EMU_AUTH._CONFIG = EMU_AUTH._CONFIG || {}
+
 			EMU_AUTH._CONFIG.id_string = id_string
 			EMU_AUTH._CONFIG.user_field = user_field
 			EMU_AUTH._CONFIG.pw_field = pw_field
 
-			EMU_AUTH._CREDS = EMU_AUTH._CREDS || {}
-			EMU_AUTH._CONFIG = EMU_AUTH._CONFIG || {}
-
-			EMU_AUTH._save()
+			EMU_AUTH._set_config()
 
 		},
 
-		_save: () => {
+		_set_config: () => {
 			/*
 				persist SELF to localStorage ( not the local credential object )
 			*/
 
 			localStorage.setItem( 'emu_auth', JSON.stringify({
-				_CREDS: EMU_AUTH._CREDS,
 				_CONFIG: EMU_AUTH._CONFIG,
 			}))
 
