@@ -113,13 +113,13 @@ const hal = ( type, msg, time ) => {
 	if( !type ) type = 'standard'
 
 	close.innerHTML = '&times;'
-	close.classList.add('alert-close-3p')
+	close.classList.add('alert-close')
 
 	icon = '<div></div>'
 
-	alert_msg.innerHTML = `<div class='alert-icon-3p type-${ type }'>${ icon }</div>${ msg }`
+	alert_msg.innerHTML = `<div class='alert-icon type-${ type }'>${ icon }</div>${ msg }`
 	alert_wrapper.classList.add('ui-fader')
-	alert_msg.classList.add('alert-msg-3p' ) // , 'hal-' + type
+	alert_msg.classList.add('alert-msg' ) // , 'hal-' + type
 	alert_msg.appendChild( close )
 	alert_wrapper.appendChild( alert_msg )
 
