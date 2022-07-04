@@ -1,3 +1,10 @@
+/*
+	pass arbitrary { events } to event_watch
+	- must have event[type]
+*/
+
+
+
 import hal from './hal.js'
 
 
