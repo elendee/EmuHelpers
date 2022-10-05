@@ -12,19 +12,22 @@
 		})
 
 	scaling:
-		just transform() for now....
+		just transform() or make 2 separate ones for now....
 
 */
 
-const sprif_style = `
-<style>
-	.sprif{
-		overflow: hidden;
-	}
-	.sprif img{
-		position: absolute;
-	}
-</style>`
+const sprif_style = document.createElement('style')
+sprif_style.innerHTML =`
+.sprif{
+	overflow: hidden;
+	position: relative;
+}
+.sprif img{
+	image-rendering: pixelated;
+	position: absolute;
+	max-width: 10000000px;
+	max-height: 10000000px;
+}`
 document.head.append( sprif_style )
 
 class Sprif {
@@ -69,15 +72,14 @@ class Sprif {
 	}
 	init_size(){
 
-		const bounds = this.img.getBoundingClientRect()
-		this.img.style.width = ( bounds.width * this.scalar ) + 'px'
-		this.img.style.height = ( bounds.height * this.scalar ) + 'px'			
+		this.img.style.width = ( this.frame_width * this.row_length ) + 'px'
+		this.img.style.height = ( this.frame_height * this.row_count ) + 'px'			
 
 		this.ele.style.width = this.frame_width + 'px'
 		this.ele.style.height = this.frame_height + 'px'
 
-		console.log( this.ele.style.width )
-		console.log( this.img.style.width )
+		// console.log( this.ele.style.width )
+		// console.log( this.img.style.width )
 
 		this.sized = true
 	}
