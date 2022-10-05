@@ -1,0 +1,110 @@
+const sprif_style = `
+<style>
+	.sprif{
+		overflow: hidden;
+	}
+	.sprif img{
+		position: absolute;
+	}
+</style>`
+document.head.append( sprif_style )
+
+class Sprif {
+	constructor( init ){
+		const required = [
+			'id', 
+			'img_url',
+			'frame_width',
+			'frame_height',
+			'row_length',
+			'frame_count',
+		]
+		for( const req of required ){
+			if( !init[req] && typeof init[req] !== 'number' ) console.error('missing required sprif init: ' + req )
+		}
+		// build DOM
+		this.ele = document.createElement('div')
+		this.ele.classList.add('sprif')
+		this.ele.id = init.id
+		this.img_url = init.img_url
+		this.img = document.createElement('img')
+		this.img.src = this.img_url
+		this.img.onload = () => {
+			this.init_size()
+		}
+		this.ele.append( this.img )
+		// defaults
+		this.scalar = init.scalar || 1
+		this.fps = init.fps || 5
+		this.animation = false
+		// init size props
+		this.frame_width = init.frame_width * this.scalar
+		this.frame_height = init.frame_height * this.scalar
+		this.row_length = init.row_length
+		this.frame_count = init.frame_count
+		this.row_count = Math.ceil( this.frame_count / this.row_length ) // ( derived )
+
+		this.ele.style.background = 'url(' + this.img_url + ') 0px 0px '
+		// current frame position:
+		this.frameX = 0
+		this.frameY = 0
+	}
+	init_size(){
+
+		const bounds = this.img.getBoundingClientRect()
+		this.img.style.width = ( bounds.width * this.scalar ) + 'px'
+		this.img.style.height = ( bounds.height * this.scalar ) + 'px'			
+
+		this.ele.style.width = this.frame_width + 'px'
+		this.ele.style.height = this.frame_height + 'px'
+
+		console.log( this.ele.style.width )
+		console.log( this.img.style.width )
+
+		this.sized = true
+	}
+	start(){
+
+		// console.log('sprif call')
+		if( this.animation ) return
+		// console.log('sprif proceed')
+		this.animation = setInterval(() => {
+
+			this.img.style.left = -this.frameX + 'px'
+			this.img.style.top = this.frameY + 'px'
+
+			this.frameX += this.frame_width
+
+			if( this.frameX >= ( this.frame_width * this.row_length ) ){
+				this.frameY += this.frame_height
+				this.frameX = 0
+			}
+			if( this.frameY >= this.row_count ){
+				this.frameY = 0
+			}				
+
+			// this.frameY += this.frame_height
+		}, 1000 / this.fps )
+	}
+	stop(){
+		clearInterval( this.animation )
+		this.animation = false
+	}
+	setFramerate( fps ){
+		this.fps = typeof fps === 'number' ? fps : 5
+		this.stop()
+		this.start()
+	}
+	setDirection( dir ){
+		// ...
+	}
+	show(){
+		this.ele.style.display = 'inline-block'
+	}
+	hide(){
+		this.ele.style.display = 'none'
+	}
+}
+
+
+export default Sprif
