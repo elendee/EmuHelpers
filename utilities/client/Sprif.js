@@ -1,3 +1,17 @@
+/*
+	example:
+	const sprif = window.sprif = new Sprif({
+		img_url: './Pilot_Suiting-up_(32 x 32).png',
+		frame_width: 32,
+		frame_height: 32,
+		scalar: 10,
+		row_length: 8,
+		fps: 6,
+		id: 'sprif-test',
+		frame_count: 8,
+	})
+*/
+
 const sprif_style = `
 <style>
 	.sprif{
